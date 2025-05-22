@@ -57,7 +57,7 @@
     background: #f31b75;
     border-radius: 20px;
     right:50%;
-    bottom:50%;
+    bottom:60%;
     transform: translate(50%);
     z-index: -1;
     /* backdrop-filter: blur(100); */
