@@ -61,7 +61,7 @@ console.log(Object.entries(obj4)); // [['name', 'batman'], ['age', 30], ['isHero
 
 //                            Object Destructuring and JSON API
 
-// ✅ Q1: Basic Destructuring
+// ✅ Q1: Basic Destructuring(chat gpt achhe se batata ha dekh lena usse ek bar puchh ke  )
 // person object me se name aur age nikaalo
 
 const person = {
@@ -146,7 +146,7 @@ const person = {
   function showCity({city}) {
     console.log("City is", city);
   }
-  
+
   showCity({ name: "Amit", city: "Kanpur" });
   // Output: City is Kanpur
 
