@@ -39,3 +39,27 @@ const o = function (){
 o(); // ye is liye kar rah hai kyoki ye current global context ko target kar raha hai 
 
 // Function ke andar this ka use hota hai, lekin this kis cheez ko point karega, wo depend karta hai function ko kaise call kiya gaya hai.
+
+// arrow function declartion 
+// explicite return 
+const chai = ()=>{
+    let username = "hero"
+    console.log(this)
+}
+chai() //{}
+
+// jab curly braces lagate hai to return likhna hi padta hai 
+// lekin jab ham curly braces hata dete or paranthisis lagate hai to usme nahi likhana padta hai 
+
+// implisite return 
+
+const add = (num1 , num2) => num1 +num2 
+const add2 = (num1 , num2) => (num1 +num2) 
+console.log(add(5,4)) //9
+console.log(add2(5,4))//9
+
+// object passing 
+const add3 = (num1, num2) => ({username : "ram"})
+console.log(add3()) //{ username: 'ram' }
+
+// witrhout wraping it into paranthisis the object can not used here 
