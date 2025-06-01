@@ -71,3 +71,29 @@ Object.freeze(obj2); // it will lock the object and no one can change the value 
 obj2.getAge = function () {
     console.log(`My age is ${this.age}`);// by string interpolation the age is  accessed from object thier the this method is used to access the recent object (usi object ke value ko access karne ke liye)
 };
+
+//------------concept of object of object =----------------------
+
+// in this object of object concept overriting of value done the values overrides the value 
+
+const a ={
+    name:"boy"
+}
+const b ={
+
+    name :"ramprakash"
+}
+const c ={
+    name:"hero boy"
+}
+a[b]={
+    name:"hero"
+}
+a[c]={
+    name:"hero ladka"
+}
+console.log(a[b]);
+console.log(a[b])
+
+
+// here the overite has done
