@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Generator </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script type="text/javascript">
+        function generateQR() {
+            let text = document.getElementById("text").value;
+            let size = document.getElementById("size").value;
+            let qrImage = document.getElementById("QR");
+            let gapi = "https://chart.googleapis.com/chart?cht=qr";
+        
+        if(text!=="" && size=="100")
+        {
+            qrImage.src=gapi+"&chs=100x100&chl="+text;
+            // qrImage.src = gapi + "=100x100&chl=" +text; //sapcing error dega 
+        }
+        else if(text!=="" && size=="200")
+        {
+            qrImage.src=gapi+"&chs=200x200&chl="+text;
+        }
+        else if(text!=="" && size=="300")
+        {
+            qrImage.src=gapi+"&chs=300x300&chl="+text;
+        }
+        else
+        {
+            alert("Please enter some text to generate QR code");
+        }
+    }
+    </script>
+    <h1>QR Generator</h1>
+   <center> <img src="" id="QR" alt=""></center>
+    <select name="option" id="size">
+        <option value="100">100X100</option>
+        <option value="200" selected>200X200</option>
+        <option value="300">300X300</option>
+    </select>
+    <textarea name="Text" id="text" placeholder="Likho Kuchh"></textarea>
+    <input type="submit" value="Generate" onclick="generateQR()">
+    <p>learn from udemy</p>
+</body>
+</html>
+<!-- this is not working properly idk why but i learn how to fix the things  -->

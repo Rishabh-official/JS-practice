@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QR Generator</title>
+  <style>
+    *{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    background: #343434;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 100px;
+}
+img{
+    width: 200px;
+    height: 200px;
+     /* border-radius: 50%;  */
+    margin-bottom: 20px;
+    
+}
+h1{
+    margin-bottom: 50px;
+    color: rgb(155, 67, 42);
+
+}
+
+select{
+    width: 400px;
+    height: 60px;
+    border-radius: 5px;
+    border: none;
+    background-color: #fff;
+    padding-left: 10px;
+    font-size: 16px;
+}
+input{
+    width: 400px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    background-color: #d98989;
+    padding-left: 10px;
+    font-size: 16px;
+}
+button{
+    width: 400px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    background-color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+button:hover{
+    background-color: #ddd;
+}
+
+textarea{
+    width: 400px;
+    height: 60px;
+    border-radius: 5px;
+    border: none;
+    background-color: #fff;
+    padding-left: 10px;
+    font-size: 16px;
+    resize: none;
+    margin: 20px;
+    text-align: bottom;
+}
+p{
+    color: #fff;
+    font-size: 16px;
+    margin-top: 20px;
+}
+  </style>
+</head>
+<body>
+
+  <h1>QR Generator</h1>
+
+  <select id="size">
+    <option value="100">100x100</option>
+    <option value="200" selected>200x200</option>
+    <option value="300">300x300</option>
+  </select>
+
+  <br><br>
+
+  <textarea id="text" placeholder="Likho kuchh..."></textarea>
+  <br><br>
+  <button onclick="generateQR()">Generate QR</button>
+
+  <br><br>
+  <img id="QR" alt="QR Code will appear here">
+
+  <script>
+    function generateQR() {
+      const text = document.getElementById("text").value.trim();
+      const size = document.getElementById("size").value;
+      const qrImage = document.getElementById("QR");
+
+      if (text === "") {
+        alert("Please enter some text!");
+        return;
+      }
+
+      const encodedText = encodeURIComponent(text);
+      const url = `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${encodedText}`;
+      qrImage.src = url;
+    }
+  </script>
+
+</body>
+</html>
