@@ -136,3 +136,47 @@ for (let i=1;i<101;i++){
     
 }
 console.log(count);
+
+
+
+// breaks and continue ke kuchh Questions
+
+// 1. stop at first multiple of 7
+// write a loop from 1 to 100 that:
+// . points each numbers 
+// . stops completely when it finds the first number divisible by 7.
+
+for(let i=1;i<101;i++){
+    console.log(i);
+    if(i%7 === 0){
+        break;
+    }
+}
+// 2. skip multiples of 3
+// write a loop from 1 to 20 that:
+// . skip number divisible by 3
+// .print all other numbers
+
+for(let i=1;i<21;i++){
+    if(i%3 === 0){
+        continue;
+    }
+    console.log(i);
+}
+
+// 3. print first 5 odd numbers only 
+//  . write a loop from 1 to 100 that 
+//  . prints only 5 odd numbers 
+//  . then stop the loop 
+let counter=0;
+for(let i =1; i<101;i++){
+    
+    if(i%2===1){
+        console.log(i);
+        counter++;
+    }
+    if(counter===5){
+        break;
+    }
+}
+// baki chatgpt ka use karke or achhe se question practice karo 
