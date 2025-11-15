@@ -264,14 +264,202 @@ let unhoistedFunction = function(){
 }
 
 
-
-
-
-
-
-
-
 // practice 
+
+// 1. whats the differnece between declaration and expressions in the terms of Hoisting
+// Answer: Function declarations are hoisted completely, meaning you can call them before they are defined in the code. Function expressions, on the other hand, are not hoisted in the same way; only the variable declaration is hoisted, not the assignment. Therefore, calling a function expression before its definition will result in an error.
+
+
+// 2. pridict the output 
+
+greet(); // Output: "Hello, World!"
+function greet() {
+    console.log("Hello, World!");
+}
+// because it is function hoisted so it gives the output
+
+// 3. convert it into a arrow function?
+
+// function multiply(a,b){
+//     return a * b;
+// }
+
+let multiply = (a,b ) => a * b;
+console.log(multiply(4,5)); // 20
+
+// 4. identify parameters and arguments
+function welcome(name){console.log(name);}
+welcome("Alice");
+
+// parameters: name
+// arguments: "Alice"
+
+// 5. how mant parameters does this function hav anf how many argumne are passed
+function demo(a,b,c){
+    console.log(a,b,c);
+}
+demo(1,2);
+// parameters: 3 (a, b, c)
+// arguments: 2 (1, 2)
+
+// 6. pridict the output
+  function SayHi(name="guest"){
+    console.log("Hi " + name);
+  }
+    SayHi();
+// Output: "Hi guest"
+// because default parameter is used so it gives the output as guest
+
+// 7. what does the ... operator mean in parameter
+// Answer: The ... operator in parameters is known as the rest operator. It allows a function to accept an indefinite number of arguments as an array. This way, you can pass multiple values to a function without explicitly defining each parameter.
+
+// ex.
+function abcde(a,b,c, ...val){
+    console.log(a,b,c,val);
+}
+abcde(1,2,3,4,5,6,7);
+// Output: 1 2 3 [4, 5, 6, 7]
+
+// 8. use rest paraameter to accept any numbers of scores and return the total
+function totalScores(...scores){
+    let total = 0;
+    for(let score of scores){
+        total += score;
+    }
+    return total;
+}
+console.log(totalScores(10,20,30)); // 60
+
+// 9.fix the function using early return 
+//  function checkAge(age){
+//     if(age < 18){
+//         console.log("Access Denied");
+//     }
+//     else{
+//         console.log("Access Granted");
+//     }
+//  }
+//  early return 
+function checkAge(age){
+    if(age<18) return "Access Denied";
+    return "Access Granted";
+}
+
+// 10.
+ function f(){
+    return;
+}
+console.log(f());
+// Output: undefined
+// because function me return ke baad koi value nahi di gayi to by default undefined return hota hai
+
+// 11. what does it mean when we say functions are first class citizens in javascript
+// Answer: In JavaScript, functions are considered first-class citizens because they can be treated like any other variable. This means that functions can be assigned to variables, passed as arguments to other functions, returned from other functions, and stored in data structures. This flexibility allows for higher-order functions and functional programming techniques.
+
+// 12. can you assign a function to a variable and then call it? show how?
+let myFunction = function(){
+    console.log("Function assigned to a variable");
+}
+myFunction(); // Function assigned to a variable
+
+// 13. pass a function into another function and execute it inside
+function executeFunction(func){
+    func();
+}
+executeFunction(function(){
+    console.log("Function passed as an argument");
+}
+);
+
+// Output: Function passed as an argument
+
+// 15. identify which one is higner order function .
+// [1,2,3].map{ function (num){
+//     return num * 2;
+// }};
+// Answer: The map function is a higher-order function because it takes another function as an argument and applies it to each element in the array.
+
+// 16. pure v/s impure function
+let total=0;
+function addToTotal(num){
+         total+=num;
+}
+// this is impure function because the value of total variable is increases because of the function so it is a imppure function
+
+// 17. convert the above function into a pure function 
+
+let Total=0;
+function addToTotal(num){
+    newTotal= Total;
+      newTotal += num;
+}
+
+// now its become pure function the value of outer Total is not chnaged 
+
+// 18. what is clouser ? when it is created:
+
+//  a clouser is created when a function hass a variable inside and the function also returns the another function and the varible is used inside that returned function then the clouser is created 
+
+    function clouser(){
+        let clue=4;
+        return function(total){
+            clue+=total;
+            console.log(clue);
+        }
+        
+    }
+    const w = clouser();
+    w(10);
+
+// 19. kya log karega 
+
+function outer(){
+    let count =0;
+    return function(){
+        count++;
+        console.log(count);
+    }
+}
+const con= outer();
+con();
+con();con();
+
+// 20. convert this into normal function into an IIFE 
+// funtion init(){
+//     console.log("initialized");
+// }
+
+(function init(){
+        console.log("initialized");
+    })();
+
+// 21. what is the use of IIFE? Nmae one real world  use case 
+
+// private variable banane ke liye use hita hai 
+// examople 
+
+(function(){let val=0;})();
+// console me val search karne per not initialized dikhata hai ki not exist karke 
+
+
+// 22. what will be the output here and why ?
+greet ();
+var greet =function(){
+ console.log("hi");
+}
+// here hoisting is allowed so the function is access that value 
+
+
+// 23. 
+greet();
+function greet(){
+    console.log("hi");
+}
+// output= hi
+// because here the function is functin statement and function statement is allowed the hoisting
+
+
+
 // 1. Write a function to calculate the square of a number
 function square(num){
     return num * num;
@@ -297,3 +485,16 @@ function largestOfThree(a,b,c){
         return c;
     }
 }
+console.log(largestOfThree(5,10,3)); // 10
+// 4. Write a function to reverse a string
+
+function reverseString(str){
+    let reversed = "";
+    for(let i = str.length - 1; i >= 0; i--){
+        reversed += str[i];
+    }
+    return reversed;
+}
+console.log(reverseString("Hello")); // olleH
+
+
