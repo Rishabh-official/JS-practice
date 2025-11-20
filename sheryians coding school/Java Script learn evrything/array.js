@@ -204,3 +204,122 @@ let d = [1,2,4,4,5,4];
             // [1,2,4,4,5,4]
 
 
+// practice Questions 
+
+// 1. create an array with 3 fruits and print the second fruit.
+let fruits = ["banana","apple","orange"];
+fruit[1];
+
+// 2. add "Mango"at the end and "pipeapple" at the begining of this array
+
+fruits.push("Mango");
+fruits.unshift("pineapple");
+
+// 3. Replace "banana" with "kiwi" in the array above.
+
+fruits[0]= kiwi;
+
+// 4. whats the diffrence between .push() and .unshift().
+
+//  push array ke last me add karta hai or unshift array ke starting me add karta hai value
+
+// 5.Removw the last item from this array using a method
+
+fruits.pop()
+
+// 6.Insert "red" and "blue" at index 1 in this array
+
+let colors = ["green" , "yellow"];
+colors.splice(1,0,"red","blue");
+// ["green","red","blue","yellow"]
+
+// 7 . extract only the middle 3 elements from this array
+
+let arr3 =[1,2,3,44,5,,56,6,8];
+let s = arr3.slice(3,6);
+// [1,2,3,6,8]
+
+// 8. sort this array aiphabetically and then reverse it 
+
+let name =["aalu","bhaalu","beta","sonu"];
+name.sort().reverse();
+
+// 9. use .map() to square each number 
+
+let m=[1,2,3,4];
+let ma = m.map((val)=> val*val);
+console.log(ma);
+
+//  10. use .filter() to keep numbers greater then 10.
+
+let greater = arr3.filter((val)=>val>10);
+
+//  11. use .reduce() to find the sum of this any :
+
+let redu = [10,20,30];
+let ans = redu.reduce((acc,val)=>{return acc + val},0);
+console.log(ans);
+
+// 12. Use .find() to get the first number less then 10
+
+let fi = arr3.find((val)=>{return val<10;});
+console.log(fi);
+
+// 13. Use .some() to check if any student has scored below 
+
+let student = [45,23,56,64,90];
+let re = student.some((val)=>{ return val<33;
+})
+console.log(re);
+
+// 14.use every() to check if all numbers are even 
+
+let even = [2,4,6,8,10];
+let check = even.every((val)=>val%2===0);
+console.log(check);
+
+// 15. Destructure this array to get first name and last name 
+let fullName = ["rishabh","banchhor"];
+let [firstName,lastName] = fullName;
+firstName;
+lastName;
+
+// 16 . Merge two arrays using spread operator
+
+let v =[3,4];
+let w = [1,2];
+let o = [...w,...v];
+console.log(o);
+
+// 17. add "India" to the start of this array using spread
+
+let countries = ["USA","UK"];
+countries = ["india",...countries];
+console.log(countries);
+
+
+// 18 . clone this array property (not by reference)
+let arr4 =[...arr];
+
+
+
+// common confusion 
+
+// 1. splice v/s slice
+// splice = main array pe changes perform hote hai 
+// slice = ek naya array deta hai
+
+// 2. map v/s forEach
+
+// forEach :- kuchh return nahi karta hai har val pe jata hai and perform karta 
+        //    :- New array Nahi deta same array me perform hote hai 
+    
+// Map :- ye  Ek naya array deta hai 
+//      :- return karta  hai
+//     :- jab bhi purane array se kuchh banana ho tab iska use karte hai 
+
+// 3. Big Blunder with .sort()
+
+// [10,20,30].sort()--->["10","20","30"]
+
+// yha pe string me convert kar deta hai neumeric values ko sort karne ke liye function pass karte hai 
