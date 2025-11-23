@@ -72,3 +72,5 @@ Object.keys(obj1);
 // ['name','age','email']
 // object ke keys ka ek array banana ho to ye use hota hai 
 
+
+Object.entries(user)
