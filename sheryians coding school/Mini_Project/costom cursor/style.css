@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+    color: white;
+}
+#main{
+    background-color:#000;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h1{
+    font-size: 15vh;
+    font-weight: 900;
+    color: white;
+}
+#main .cursor{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    mix-blend-mode: difference;
+    background-color: #fff;
+    position: absolute;
+
+}
